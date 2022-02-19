@@ -15,8 +15,6 @@ export default function Calc(){
         setResult(Number(num1) + Number(num2))
         console.log('결과: '+result)
     }
-
-
     return <Layout><h1>Calculator</h1>
         <form action="">
         <label><b>Num1</b></label>
@@ -30,13 +28,12 @@ export default function Calc(){
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
-        
         <br />
         <label><b>Num2</b></label>
         <input id= "num2"/><br />
         <button onClick={()=>sum()}>더하기 실행</button>
         </form>
-        <div>결과: </div>
+        <div>결과: {num1}+{num2}</div>
         
     </Layout>
 }
