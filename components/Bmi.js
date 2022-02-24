@@ -4,7 +4,7 @@ import axios from "axios"
 
 export default function Bmi(){
     const [inputs, setInputs] = useState({})
-    const {name, weight, height} = inputs; // Object Destructuring
+    const {name, weight, height} = inputs // Object Destructuring
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -29,7 +29,7 @@ export default function Bmi(){
     }
 
     return <Layout>
-    <form action=""></form>
+    <form action="">
     <h1>BMI폼</h1>
     <label htmlFor=""><b>Name: </b></label>
     <input type="text" name="name" onChange={handleChange} /><br />
@@ -38,7 +38,7 @@ export default function Bmi(){
     <label htmlFor=""><b>Weight(kg) : </b></label>
     <input type="text" name="weight" onChange={handleChange}/><br />
     <button onClick={handleClick}>BMI 체크</button>
-        
+    </form> 
     </Layout>
 }
 
