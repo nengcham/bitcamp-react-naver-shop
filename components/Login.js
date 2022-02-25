@@ -1,8 +1,11 @@
 import React, { useState } from "react"
+import { memberLogin } from "../api"
 import Layout from "../containers/Layout"
+
 export default function Login (){
     const [inputs, setInputs] = useState({})
-    const {name, password} = inputs
+    const {id, password} = inputs
+    const [result, setResult] = useState("")    
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -13,27 +16,19 @@ export default function Login (){
     }
     const handleClick = (e) => {
         e.preventDefault()
-        const bmiRequest = {name, password}
-        alert(`결과: ${JSON.stringify(bmiRequest)}`)
+        memberLogin({id, password})
+        .then(res => setResult(res.data))
+        .catch(err => console.log(`에러발생: ${err}`))
     }  
-
-    // const [userName, setUserName] = useState(0)
-    // const [password, setPassword] = useState(0)
-    // const res = () =>{
-    //     let userName = document.getElementById('userName').value
-    //     let password = document.getElementById('password').value
-    //     setUserName(userName)
-    //     setPassword(password)
-    // }
 
     return<Layout><h1>Login Form</h1>
         <div>
             <label><b>Username </b></label><br />
-            <input type="text" name="name" onChange={handleChange} /><br />
+            <input type="text" name="id" onChange={handleChange} /><br />
             <label><b>Password </b></label><br />
             <input type="text" name="password" onChange={handleChange} /><br />
-            <button onClick={handleClick}>Login</button><br />
-            <div>아이디: {name}, 비밀번호: {password}</div>
+            <button onClick={handleClick}>확인</button><br />
+            <div>{result}</div>
             <label>
                 <input type="checkbox" /> Remember me
             </label>
