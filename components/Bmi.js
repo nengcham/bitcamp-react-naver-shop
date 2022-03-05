@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import Layout from "../containers/Layout"
 import {memberBmi} from "../api/index"
 
-
 export default function Bmi(){
     const [inputs, setInputs] = useState({})
     const {name, weight, height} = inputs // Object Destructuring
